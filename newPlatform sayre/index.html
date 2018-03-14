@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="platformDataFile.js"></script>
+    <script>
+        function buildPlatforms() {
+            canvasOutput = "";
+            //loop thru the top level platform data 
+            for (index1 = 0; index1 < platformData.length; ++index1) {
+                canvasOutput = canvasOutput + platformData[index1].name + "<hr>";
+                //loop thru the platform powers 
+                for (index2 = 0; index2 < platformData[index1]["powers"].length; ++index2) {
+                    canvasOutput = canvasOutput + "    - " + platformData[index1]["powers"][index2] + "<br>";
+                }
+                canvasOutput = canvasOutput + "<br>";
+            };
+            document.getElementById("canvas").innerHTML = canvasOutput;
+        }
+    </script>
+</head>
+<html>
+
+<body onload="buildPlatforms()">
+    <p id="canvas"></p>
+</body>
+
+</html>
